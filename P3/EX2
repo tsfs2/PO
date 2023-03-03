@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+void Power(double n,unsigned int p){
+    int x=1;
+    for(int i=1;i<=p;i++){
+        x=x*n;
+    }
+    cout<<"The result of "<<n<<" power "<<p<<" is "<<x;
+}
+int main(){
+    int p=0;
+    int n=0;
+    cout<<"Say a number: "<<endl;
+    cin>>n;
+    cout<<"Say the power: "<<endl;
+    cin>>p;
+    Power(n,p);
+ }
