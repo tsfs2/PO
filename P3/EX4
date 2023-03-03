@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+template <typename T> T myPower(T n, T p){
+    T x=1;
+    for(int i=1;i<=p;i++){
+        x=x*n;
+    }
+    return x;
+}
+int main(){
+    double p=0;
+    double n=0;
+    cout<<"Say a number: "<<endl;
+    cin>>n;
+    cout<<"Say the power: "<<endl;
+    cin>>p;
+    cout<<"The number "<<n<<" power to "<<p<<" is "<<myPower(n,p);
+}
