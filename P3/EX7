@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+template <typename T> T Largest (T arr[], unsigned int size){
+    T max=arr[0];
+    for(int i=0;i<size;i++){
+    if (arr[i]>max){
+        max=arr[i];
+    }
+    }
+    return max;
+}
+int main(){
+    double arr[]{10.5,20,0.5,20.1,0};
+    double largest_element= Largest(arr,5);
+    cout<<"The largest number is : "<<largest_element<<endl;
+    char s[]="It is a truth universally acknowlegend";
+    char largest_ch= Largest(s,38);
+    cout<<"The largest ch is : "<<largest_ch<<endl;
+    return 0;
+}
