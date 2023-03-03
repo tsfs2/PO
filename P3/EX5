@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+template <typename T> T myLargest(T n1, T n2){
+    if(n1>n2){
+        return n1;
+    }
+    else if(n2>n1){
+        return n2;
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    double n1=0;
+    double n2=0;
+    cout<<"Say a number: "<<endl;
+    cin>>n1;
+    cout<<"Say another number: "<<endl;
+    cin>>n2;
+    cout<<"The largest number is : "<<myLargest(n1,n2);
+}
