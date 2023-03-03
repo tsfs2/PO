@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+double Power(double n,unsigned int p){
+    double x=1;
+    for(int i=1;i<=p;i++){
+        x=x*n;
+    }
+    return x;
+}
+short Power(short n,unsigned int p){
+    short x=1;
+    for(int i=1;i<=p;i++){
+        x=x*n;
+    }
+    return x;
+}
+int Power(int n,unsigned int p){
+    int x=1;
+    for(int i=1;i<=p;i++){
+        x=x*n;
+    }
+    return x;
+}
+long Power(long n,unsigned int p){
+    long x=1;
+    for(int i=1;i<=p;i++){
+        x=x*n;
+    }
+    return x;
+}
+float Power(float n,unsigned int p){
+    float x=1;
+    for(int i=1;i<=p;i++){
+        x=x*n;
+    }
+    return x;
+}
+int main(){
+    double p=0;
+    double n=0;
+    cout<<"Say a number: "<<endl;
+    cin>>n;
+    cout<<"Say the power: "<<endl;
+    cin>>p;
+    cout<<"The number "<<n<<" power to "<<p<<" is "<<Power(n,p);
+}
