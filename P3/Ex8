@@ -1,0 +1,84 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <string>
+#include <algorithm> //para o max value do vector
+using namespace std;
+struct Product{
+    string name;
+    string date;
+    double openingprice;
+    double price;
+    double maxprice;
+    double minprice;
+    double closingprice;
+    int volume;
+};
+int main(){
+    ifstream in("stocks.csv");
+    vector<Product>products{};
+    string line{};
+    while(getline(in,line)){
+        istringstream iss(line);
+        string substring{};
+        vector<string>substrings{};
+        while(getline(iss,substring,',')){
+            substrings.push_back(substring);
+        }
+        Product product{};
+        //convert string to unsigned int long
+        product.name=(substrings[0]);
+        product.date=substring[1];
+        product.openingprice=stoi(substrings[2]);
+        product.price=(substring[3]);
+        product.maxprice=(substring[4]);
+        product.minprice=(substring[5]);
+        product.closingprice=(substring[6]);
+        product.volume=(substring[7]);
+        products.push_back(product);
+
+    }
+for(const Product& p:products){
+    cout<<p.name<<" "<<p.date<<" "<<p.openingprice<<" "<<p.price<<" "<<p.maxprice<<" "<<p.minprice<<" "<<p.closingprice<<" "<<p.volume<<endl;
+}
+//most traded stock(largest volume)
+int max=0;
+for(const Product& p:products){
+    if(p.volume>max){
+        max=p.volume;
+    }
+}
+cout<<"O maior valor do volume e: "<<max<<endl;
+//highest daily appreciation(difference between the opening price and the closing price)
+//ou seja é a maior diferença entre o opening price e o closing price
+//fazer a diferenca entre o opening e o closing the cada dia e depois ver a maior diferenca
+// dar print ao dia que isso acontece
+int counter=0;
+int somaopeningprice=0;
+double diferenca=0;
+//int maxdif=0;
+vector<int>dif;
+for(const Product& p:products){
+    diferenca=p.openingprice-p.closingprice;
+    dif.push_back(diferenca);
+}
+for(int i=0;i<dif.size();i++){
+    cout<<dif[i]<<endl;
+}
+    double maxdif = *max_element(dif.begin(), dif.end());
+    cout<<"A maior diferenca e: "<<maxdif<<endl;
+    int check=0;
+    for(int i=0;i<dif.size();i++){
+        if(dif[i]=28764){
+            check=i;
+        }
+        else{
+            cout<<"Not found: "<<endl;
+        }
+    }
+    cout<<"Indice : "<<i<<endl;
+/*cout<<"Counter = "<<counter<<endl;
+cout<<"Media do Opening Price: "<<somaopeningprice/counter;*/
+}
+
